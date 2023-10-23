@@ -39,17 +39,18 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-##Apis de Desenvolvimonto
 ### `npm run build` fails to minify
+
+## Apis de Desenvolvimonto
 
 Api utlizada para desenvolvimento deste projeto para a disciplina de Desenvolvimento full-Stack.
 https://www.dnd5eapi.co/docs/
 
-##Compilador Css
+## Compilador Css
 Compilador css utilizado para desenvolvimento deste projeto para a disciplina de Desenvolvimento full-Stack.
 https://styled-components.com/
 
-##Funcionalidades e Hooks opcionais aprovados pelo professor da disciplina
+## Funcionalidades e Hooks opcionais aprovados pelo professor da disciplina
 Hooks diferente do padrão pedido pelo professor da disciplina
 
 useRef
