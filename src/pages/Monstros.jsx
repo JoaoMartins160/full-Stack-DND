@@ -1,9 +1,8 @@
+import Sidebar from "../components/Sidebar";
+
 function Monstros() {
   return (
-    <section>
-      <div className="classes"> vai se forder mundo </div>
-      <div className="Ugauga"> ola mundo </div>
-    </section>
+    <Sidebar></Sidebar>
   );
 }
 

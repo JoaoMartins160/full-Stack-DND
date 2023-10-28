@@ -1,9 +1,8 @@
+import Sidebar from "../components/Sidebar";
+
 function Equipamentos() {
   return (
-    <section>
-      <div className="classes"> vai se forder mundo </div>
-      <div className="Ugauga"> ola mundo </div>
-    </section>
+    <Sidebar></Sidebar>
   );
 }
 

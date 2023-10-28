@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <Sidebar></Sidebar>
+      <div className="content">
+        <h1 className="title">Códex Inicial</h1>
+        <h2>Introdução</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          &nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+          consectetur nulla ex laudantium quis placeat maxime reiciendis porro saepe
+          necessitatibus provident unde fugiat explicabo pariatur aut dicta iste animi
+          autem debitis corrupti, voluptatem delectus officia error dignissimos. Magni
+          aliquam ipsam reprehenderit dolorum fugiat, accusantium illum ut?
+          Reprehenderit amet aspernatur repellat maxime culpa, vitae earum placeat
+          excepturi tempore accusamus quis voluptatibus deleniti labore nulla quo
+          sequi sint quae libero possimus facilis similique deserunt, voluptatum
+          voluptates? Ratione dolore incidunt, cupiditate impedit non explicabo rem
+          praesentium, molestiae nobis, eum natus maxime placeat? Perspiciatis quod
+          molestias fugit quos saepe error consectetur voluptas dolor obcaecati?
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <h2>Sobre</h2>
+        <p>
+          &nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+          consectetur nulla ex laudantium quis placeat maxime reiciendis porro saepe
+          necessitatibus provident unde fugiat explicabo pariatur aut dicta iste animi
+          autem debitis corrupti, voluptatem delectus officia error dignissimos. Magni
+          aliquam ipsam reprehenderit dolorum fugiat, accusantium illum ut?
+          Reprehenderit amet aspernatur repellat maxime culpa, vitae earum placeat
+          excepturi tempore accusamus quis voluptatibus deleniti labore nulla quo
+          sequi sint quae libero possimus facilis similique deserunt, voluptatum
+          voluptates? Ratione dolore incidunt, cupiditate impedit non explicabo rem
+          praesentium, molestiae nobis, eum natus maxime placeat? Perspiciatis quod
+          molestias fugit quos saepe error consectetur voluptas dolor obcaecati?
+        </p>
+      </div>
+    </>
   );
 }
 
