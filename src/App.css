@@ -1,3 +1,13 @@
+.content {
+  padding: 20px 100px;
+  text-align: center;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30%;
+}
+
 .title {
   padding: 30px;
   margin: 16px auto;
@@ -6,17 +16,8 @@
   text-transform: uppercase;
   letter-spacing: 10px;
   border-radius: 5px;
-
-  text-decoration: 1px underline #FF1111;
+  text-decoration: 1px underline #ff1111;
   text-underline-position: under;
-  /* color: #000; */
-  /* border: 1px solid #FF1111; */
-  /* text-shadow: 1px 1px 0 #FF1111,
-    -1px 1px 0 #FF1111,
-    1px -1px 0 #FF1111,
-    -1px -1px 0 #FF1111; */
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #FF1111; */
 }
 
 h2 {
@@ -24,18 +25,12 @@ h2 {
   text-align: left;
   letter-spacing: 1px;
   padding: 24px;
-
-  /* text-shadow: 1px 1px 0 #FF1111,
-    -1px 1px 0 #FF1111,
-    1px -1px 0 #FF1111,
-    -1px -1px 0 #FF1111; */
-  text-decoration: 1px underline #FF1111;
+  text-decoration: 1px underline #ff1111;
   text-underline-position: under;
 }
 
 p {
   text-align: justify;
-  /* letter-spacing: 0.5px; */
   font-weight: 100;
   line-height: 2;
   padding-bottom: 30px;

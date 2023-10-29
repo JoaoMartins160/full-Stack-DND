@@ -1,31 +1,29 @@
 import styled from "styled-components";
 
-const Button_Nav = styled.a`
+const ButtonNav = styled.a`
   color: black;
   text-decoration: none;
   padding: 14px 0;
   display: block;
   border: 3px solid #000;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   margin-top: 24px;
   border-radius: 5px;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.5px;
-  &hover{
-    color: #FFF;
+  &hover {
+    color: #fff;
     background-color: #000;
     transition: 200ms linear;
-    border: 3px solid #FFF;
+    border: 3px solid #fff;
   }
 `;
 
-
 function Button(props) {
   let Name = props.Name;
-  return (
-    <Button_Nav href="#">{Name}</Button_Nav>
-  );
+  let redirection = props.redirection;
+  return <ButtonNav href={redirection}>{Name}</ButtonNav>;
 }
 
 export default Button;
