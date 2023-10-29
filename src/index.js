@@ -15,7 +15,7 @@ root.render(<Main></Main>);
 
 export default function Main() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={REACT_APP_PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/Classes" element={<Classes />} />
