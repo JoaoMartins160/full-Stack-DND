@@ -1,12 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import useApi from "../hooks/useApi";
-import styled from "styled-components";
-
-const RetultsData = styled.h2`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
-`;
+import Card from "../components/Card";
 
 function Monstros() {
   const { getdata } = useApi("monsters", "results");
@@ -15,7 +9,7 @@ function Monstros() {
     <>
       <Sidebar></Sidebar>
       {getdata.map((monster) => (
-        <RetultsData key={monster.id}>{monster.name}</RetultsData>
+        <Card key={monster.id} title={monster.name} content={"Ver mais"}></Card>
       ))}
     </>
   );

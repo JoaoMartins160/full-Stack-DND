@@ -10,6 +10,7 @@ const ButtonNav = styled.a`
   margin-top: 24px;
   border-radius: 5px;
   text-transform: uppercase;
+  text-align: center;
   font-size: 12px;
   letter-spacing: 0.5px;
   &hover {

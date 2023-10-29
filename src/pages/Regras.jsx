@@ -1,12 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import useApi from "../hooks/useApi";
-import styled from "styled-components";
-
-const RetultsData = styled.h2`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
-`;
+import Card from "../components/Card";
 
 function Regras() {
   const { getdata } = useApi("rules", "results");
@@ -15,7 +9,7 @@ function Regras() {
     <>
       <Sidebar></Sidebar>
       {getdata.map((results) => (
-        <RetultsData key={results.id}>{results.name}</RetultsData>
+        <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
     </>
   );

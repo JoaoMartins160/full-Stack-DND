@@ -1,12 +1,6 @@
 import Sidebar from "../components/Sidebar";
-import styled from "styled-components";
 import useApi from "../hooks/useApi";
-
-const RetultsData = styled.h2`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
-`;
+import Card from "../components/Card";
 
 function Habilidades() {
   const { getdata } = useApi("spells", "results");
@@ -15,7 +9,7 @@ function Habilidades() {
     <>
       <Sidebar></Sidebar>
       {getdata.map((results) => (
-        <RetultsData key={results.id}>{results.name}</RetultsData>
+        <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
     </>
   );

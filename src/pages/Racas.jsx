@@ -1,12 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import useApi from "../hooks/useApi";
-import styled from "styled-components";
-
-const RetultsData = styled.h2`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
-`;
+import Card from "../components/Card";
 
 function Racas() {
   const { getdata } = useApi("races", "results");
@@ -14,8 +8,8 @@ function Racas() {
   return (
     <>
       <Sidebar></Sidebar>
-      {getdata.map((monster) => (
-        <RetultsData key={monster.id}>{monster.name}</RetultsData>
+      {getdata.map((results) => (
+        <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
     </>
   );

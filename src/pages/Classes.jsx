@@ -1,12 +1,6 @@
 import useApi from "../hooks/useApi";
 import Sidebar from "../components/Sidebar";
-import styled from "styled-components";
-
-const RetultsData = styled.h2`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
-`;
+import Card from "../components/Card";
 
 function Classes() {
   const { getdata } = useApi("classes", "results");
@@ -15,10 +9,7 @@ function Classes() {
     <>
       <Sidebar></Sidebar>
       {getdata.map((results) => (
-        <div>
-          <RetultsData key={results.id}>{results.name}</RetultsData>
-          <p>{results.url}</p>
-        </div>
+        <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
     </>
   );

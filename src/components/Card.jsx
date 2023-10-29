@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "./Button";
 
 const MainCard = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ const MainCard = styled.div`
   border-radius: 8px;
   width: 30%;
   padding: 48px;
-  background: #d1dfff;
+  background: #0238b8;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
   margin-top: 50px;
   flex-direction: column;
@@ -19,7 +20,7 @@ function Card(props) {
     <>
       <MainCard>
         <h2>{title}</h2>
-        <button>{content}</button>
+        <Button Name={content}></Button>
       </MainCard>
     </>
   );

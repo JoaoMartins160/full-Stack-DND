@@ -8,11 +8,7 @@ function Equipamentos() {
     <>
       <Sidebar></Sidebar>
       {getdata.map((results) => (
-        <Card
-          key={results.id}
-          title={results.name}
-          content={results.url}
-        ></Card>
+        <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
     </>
   );
