@@ -13,7 +13,7 @@ const ButtonNav = styled.a`
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.5px;
-  &hover {
+  &:hover {
     color: #fff;
     background-color: #000;
     transition: 200ms linear;

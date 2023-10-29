@@ -7,11 +7,13 @@ const MainCard = styled.div`
   border-radius: 8px;
   width: 30%;
   padding: 48px;
-  background: #0238b8;
+  background: #2e2e2e;
+  border: 1px solid #FF1111;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
   margin-top: 50px;
   flex-direction: column;
 `;
+
 
 function Card(props) {
   let title = props.title;

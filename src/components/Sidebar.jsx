@@ -1,5 +1,6 @@
 import Button from "./Button";
 import styled from "styled-components";
+import logo_dnd from "../assets/logo_dnd.png"
 
 const SidebarElements = styled.div`
   background-color: #2e2e2e;
@@ -18,7 +19,7 @@ const SidebarElements = styled.div`
 function Sidebar() {
   return (
     <SidebarElements>
-      <img src="#" alt="Logo Codex Inicial" />
+      <img src={logo_dnd} alt="Logo" />
       <Button redirection={"/"} Name={"Home"}></Button>
       <Button redirection={"Regras"} Name={"Regras"}></Button>
       <Button redirection={"Classes"} Name={"Classes"}></Button>

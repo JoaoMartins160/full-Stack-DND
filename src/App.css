@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Revalia&family=Young+Serif&display=swap');
+
 body {
   margin: 0;
   font-family: "Revalia", sans-serif;
@@ -10,17 +12,15 @@ body {
 .content {
   padding: 20px 100px;
   text-align: center;
-  max-width: 50%;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 30%;
 }
 
 .title {
   padding: 30px;
   margin: 16px auto;
-  width: 60%;
   font-size: 40px;
   text-transform: uppercase;
   letter-spacing: 10px;

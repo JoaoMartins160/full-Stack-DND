@@ -9,33 +9,11 @@ function App() {
         <h1 className="title">Códex Inicial</h1>
         <h2>Introdução</h2>
         <p>
-          &nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Facilis consectetur nulla ex laudantium quis placeat maxime reiciendis
-          porro saepe necessitatibus provident unde fugiat explicabo pariatur
-          aut dicta iste animi autem debitis corrupti, voluptatem delectus
-          officia error dignissimos. Magni aliquam ipsam reprehenderit dolorum
-          fugiat, accusantium illum ut? Reprehenderit amet aspernatur repellat
-          maxime culpa, vitae earum placeat excepturi tempore accusamus quis
-          voluptatibus deleniti labore nulla quo sequi sint quae libero possimus
-          facilis similique deserunt, voluptatum voluptates? Ratione dolore
-          incidunt, cupiditate impedit non explicabo rem praesentium, molestiae
-          nobis, eum natus maxime placeat? Perspiciatis quod molestias fugit
-          quos saepe error consectetur voluptas dolor obcaecati?
+          &nbsp; Criado por Gary Gygax e Dave Arneson, Dungeons n' Dragons, frequentemente abreviado como DnD, é um dos jogos de role-playing mais icônicos e influentes do mundo. No coração do DnD está a ideia de contar histórias, onde os jogadores assumem o papel de personagens fictícios em um mundo de fantasia medieval. A essência é a criação conjunta de uma narrativa épica. Um grupo de jogadores, liderado por um mestre (ou mestre de jogo), embarca em aventuras imaginárias onde eles enfrentam monstros, resolvem quebra-cabeças, exploram masmorras perigosas e interagem com personagens em um mundo ricamente detalhado.
         </p>
         <h2>Sobre</h2>
         <p>
-          &nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Facilis consectetur nulla ex laudantium quis placeat maxime reiciendis
-          porro saepe necessitatibus provident unde fugiat explicabo pariatur
-          aut dicta iste animi autem debitis corrupti, voluptatem delectus
-          officia error dignissimos. Magni aliquam ipsam reprehenderit dolorum
-          fugiat, accusantium illum ut? Reprehenderit amet aspernatur repellat
-          maxime culpa, vitae earum placeat excepturi tempore accusamus quis
-          voluptatibus deleniti labore nulla quo sequi sint quae libero possimus
-          facilis similique deserunt, voluptatum voluptates? Ratione dolore
-          incidunt, cupiditate impedit non explicabo rem praesentium, molestiae
-          nobis, eum natus maxime placeat? Perspiciatis quod molestias fugit
-          quos saepe error consectetur voluptas dolor obcaecati?
+          &nbsp; O Códex Inicial é uma porta de entrada para as pessoas falante do português, para remover a barreira do inglês e apresentar o incrível universo do Dungeons n' Dragons. Esta é uma aplicação web que utiliza a poderosa API de DnD para trazer informações detalhadas, pasmem, em português, Sensei Watanabe.
         </p>
       </div>
     </>
