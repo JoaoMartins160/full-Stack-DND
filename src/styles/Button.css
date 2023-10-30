@@ -1,0 +1,13 @@
+a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 14px 0;
+}
+a:hover {
+  color: #fff;
+}

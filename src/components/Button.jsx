@@ -1,9 +1,10 @@
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import styled from "styled-components";
+import "../styles/Button.css";
 
-const ButtonNav = styled.a`
+const ButtonNav = styled.li`
   color: black;
   text-decoration: none;
-  padding: 14px 0;
   display: block;
   border: 3px solid #000;
   background-color: #d9d9d9;
@@ -24,7 +25,19 @@ const ButtonNav = styled.a`
 function Button(props) {
   let Name = props.Name;
   let redirection = props.redirection;
-  return <ButtonNav href={redirection}>{Name}</ButtonNav>;
+  return <CustomLink to={redirection}>{Name}</CustomLink>;
 }
 
+function CustomLink({ to, children, ...props }) {
+  const resolvePath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvePath.pathname, end: true });
+
+  return (
+    <ButtonNav to={to} {...props} className={isActive}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </ButtonNav>
+  );
+}
 export default Button;

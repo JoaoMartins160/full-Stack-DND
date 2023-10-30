@@ -1,6 +1,6 @@
 import Button from "./Button";
 import styled from "styled-components";
-import logo_dnd from "../assets/logo_dnd.png"
+import logo_dnd from "../assets/logo_dnd.png";
 
 const SidebarElements = styled.div`
   background-color: #2e2e2e;
