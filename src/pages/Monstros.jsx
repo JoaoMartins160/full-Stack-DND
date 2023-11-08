@@ -6,6 +6,7 @@ import axios from "axios";
 function Monstros() {
   const [monsterList, setMonsterList] = useState([]);
   const [search, setSearch] = useState("");
+  const [find, setFind] = useState(true);
 
   const handleAllSubmit = async (e) => {
     e.preventDefault();
@@ -21,34 +22,26 @@ function Monstros() {
     }
   };
 
-  const handleButtonClick = () => {
-    const input = document.getElementById("monster-input").value.toLowerCase();
-    const regex = /\s/g;
-    if (regex.test(input)) {
-      const searchResult = input.replace(regex, "-");
-      setSearch(searchResult);
-    } else {
-      console.log("A entrada não contém espaços em branco.");
-      setSearch(input);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    handleReset()
     try {
       const response = await dndapi.get(`/api/monsters/${search}`);
-      if (response.data.count === 0) {
-        console.log("Nenhum monstro encontrado com esse nome.");
-      } else {
-        setMonsterList([response.data]);
-      }
+      setMonsterList([response.data]);
+      // if (response.data.count === 0) {
+      //   console.log("Nenhum monstro encontrado com esse nome.");
+      // } else {
+      // }
     } catch (e) {
+      setFind(false);
       console.error(e);
     }
   };
 
   function handleReset() {
     setSearch("");
+    setFind(true);
+    setMonsterList(0);
   }
 
   const handleCards = (monster) => {
@@ -75,13 +68,13 @@ function Monstros() {
       <header className="search-bar">
         <form className="search-container" onSubmit={handleSubmit}>
           <input
-            id="monster-input"
+            className="monster-input"
             type="text"
-            placeholder="Digite o nome do Monstro"
+            placeholder="Digite o nome do monstro"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
-          <button id="monsterButton" type="submit" onClick={handleButtonClick}>
+          <button className="monster-button" type="submit">
             SEARCH
           </button>
           <button className="monster-button" onClick={handleReset}>
@@ -91,6 +84,7 @@ function Monstros() {
             All Elements
           </button>
         </form>
+        {find ? <></> : <p>Nenhum monstro encontrado com esse nome.</p>}
       </header>
       {monsterList.length > 0 && (
         <div className="cardContainer">{cardList()}</div>
