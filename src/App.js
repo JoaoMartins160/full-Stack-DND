@@ -7,7 +7,6 @@ import Monstros from "./pages/Monstros";
 import Racas from "./pages/Racas";
 import Regras from "./pages/Regras";
 import Home from "./pages/Home";
-import Modal from "./components/Modal";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/Monstros" element={<Monstros />} />
         <Route path="/Raças" element={<Racas />} />
         <Route path="/Regras" element={<Regras />} />
-        <Route path="/teste" element={<Modal />} />
       </Routes>
     </>
   );

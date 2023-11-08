@@ -1,6 +1,6 @@
 import { BASE_URL, dndapi } from "../hooks/useApi";
 import { useState } from "react";
-import Modal from "../components/Modal";
+import CardMonster from "../components/CardMonster";
 import axios from "axios";
 
 function Monstros() {
@@ -29,7 +29,6 @@ function Monstros() {
       const searchResult = input.replace(regex, "-");
       setSearch(searchResult);
     } else {
-      console.log("A entrada não contém espaços em branco.");
       setSearch(input);
     }
   };
@@ -40,10 +39,6 @@ function Monstros() {
     try {
       const response = await dndapi.get(`/api/monsters/${search}`);
       setMonsterList([response.data]);
-      // if (response.data.count === 0) {
-      //   console.log("Nenhum monstro encontrado com esse nome.");
-      // } else {
-      // }
     } catch (e) {
       setFind(false);
       console.error(e);
@@ -57,14 +52,31 @@ function Monstros() {
   }
 
   const handleCards = (monster) => {
+    if (!monster || !monster.armor_class || monster.armor_class.length === 0) {
+      return null;
+    }
     return (
-      <Modal
-        key={monster.index}
-        title={monster.name}
-        type={monster.type}
-        size={monster.size}
-        alignment={monster.alignment}
-      ></Modal>
+      <>
+        <CardMonster
+          key={monster.index}
+          title={monster.name}
+          type={monster.type}
+          size={monster.size}
+          alignment={monster.alignment}
+          CA={monster.armor_class[0].value}
+          HP={monster.hit_points}
+          SpeedWalk={monster.speed.walk}
+          SpeedSwin={monster.speed.swim}
+          STR={monster.strength}
+          DEX={monster.dexterity}
+          CONS={monster.constitution}
+          INT={monster.intelligence}
+          WIS={monster.wisdom}
+          CHA={monster.charisma}
+          Challenge={monster.challenge_rating}
+          XP={monster.xp}
+        ></CardMonster>
+      </>
     );
   };
 
@@ -87,7 +99,7 @@ function Monstros() {
             value={search}
           />
           <button id="monsterButton" type="submit" onClick={handleButtonClick}>
-            > SEARCH
+            SEARCH
           </button>
           <button className="monster-button" onClick={handleReset}>
             CLEAN RESEARCH
