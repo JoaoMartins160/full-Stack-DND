@@ -21,6 +21,18 @@ function Monstros() {
     }
   };
 
+  const handleButtonClick = () => {
+    const input = document.getElementById("monster-input").value.toLowerCase();
+    const regex = /\s/g;
+    if (regex.test(input)) {
+      const searchResult = input.replace(regex, "-");
+      setSearch(searchResult);
+    } else {
+      console.log("A entrada não contém espaços em branco.");
+      setSearch(input);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -63,13 +75,13 @@ function Monstros() {
       <header className="search-bar">
         <form className="search-container" onSubmit={handleSubmit}>
           <input
-            className="monster-input"
+            id="monster-input"
             type="text"
-            placeholder="Digite o nome do anime"
+            placeholder="Digite o nome do Monstro"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
-          <button className="monster-button" type="submit">
+          <button id="monsterButton" type="submit" onClick={handleButtonClick}>
             SEARCH
           </button>
           <button className="monster-button" onClick={handleReset}>
