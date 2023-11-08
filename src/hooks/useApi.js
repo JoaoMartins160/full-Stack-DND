@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const dndapi = axios.create({
-  baseURL: "https://www.dnd5eapi.co/api/",
+export const BASE_URL = "https://www.dnd5eapi.co";
+
+export const dndapi = axios.create({
+  baseURL: BASE_URL,
 });
 
 function useApi(url, pass) {

@@ -1,5 +1,4 @@
 import useApi from "../hooks/useApi";
-import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 
 function Classes() {
@@ -7,7 +6,6 @@ function Classes() {
 
   return (
     <>
-      <Sidebar></Sidebar>
       {getdata.map((results) => (
         <Card key={results.id} title={results.name} content={"Ver mais"}></Card>
       ))}
