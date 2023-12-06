@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login = ({ onLogin }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -12,8 +12,16 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = () => {
-    console.log(`Username: ${username}, Password: ${password}`);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const mockUser = "Joao";
+    const mockPassword = "senha123";
+
+    if (username === mockUser && password === mockPassword) {
+      onLogin(username, password);
+    } else {
+      alert("Usuário ou senha incorretos");
+    }
   };
 
   return (
@@ -27,7 +35,11 @@ const Login = () => {
         <br />
         <label>
           Password:
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
         </label>
         <br />
         <button type="button" onClick={handleLogin}>

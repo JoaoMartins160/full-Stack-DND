@@ -25,15 +25,22 @@ function App() {
   }, [socket]);
 
   const handleLogin = (username, password) => {
-    setIsLoggedIn(true);
-    navigate('/');
+    const mockUser = "Joao";
+    const mockPassword = "senha123";
+
+    if (username === mockUser && password === mockPassword) {
+      setIsLoggedIn(true);
+      navigate('/');
+    } else {
+      alert("Usuário ou senha incorretos");
+    }
   };
 
   return (
     <>
+      {isLoggedIn && <Sidebar />}
       <Routes>
-        <Route path="/login" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
-        <Route path="/*" element={isLoggedIn ? <Sidebar /> : <Login onLogin={handleLogin} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
         <Route path="/Classes" element={isLoggedIn ? <Classes /> : <Login onLogin={handleLogin} />} />
         <Route path="/Equipamentos" element={isLoggedIn ? <Equipamentos /> : <Login onLogin={handleLogin} />} />
