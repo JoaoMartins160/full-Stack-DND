@@ -10,6 +10,19 @@ function Monstros() {
 
   const handleAllSubmit = async (e) => {
     e.preventDefault();
+    handleReset();
+    try {
+      const response = await dndapi.get(`/api/monsters`);
+      const monsterPromises = response.data.map((index) => axios.get(BASE_URL));
+      const allMonsterResponses = await Promise.all(monsterPromises);
+      setMonsterList(allMonsterResponses.map((response) => response.data));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  /*   const handleAllSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await dndapi.get(`/api/monsters`);
       const monsterPromises = response.data.results.map((index) =>
@@ -20,7 +33,7 @@ function Monstros() {
     } catch (e) {
       console.error(e);
     }
-  };
+  }; */
 
   const handleButtonClick = () => {
     const input = document.getElementById("monster-input").value.toLowerCase();

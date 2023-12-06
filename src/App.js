@@ -7,8 +7,20 @@ import Monstros from "./pages/Monstros";
 import Racas from "./pages/Racas";
 import Regras from "./pages/Regras";
 import Home from "./pages/Home";
+import useWebSocket from "./websocket";
+import { useEffect } from "react";
 
 function App() {
+  const socket = useWebSocket("ws://localhost:8080");
+
+  useEffect(() => {
+    if (socket) {
+      socket.onmessage = (message) => {
+        console.log("Mensagem recebida do servidor:", message.data);
+      };
+    }
+  }, [socket]);
+
   return (
     <>
       <Sidebar></Sidebar>

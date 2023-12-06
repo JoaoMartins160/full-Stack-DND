@@ -2,7 +2,7 @@ import useApi from "../hooks/useApi";
 import Card from "../components/Card";
 
 function Racas() {
-  const { getdata } = useApi("races", "results");
+  const { getdata } = useApi("/api/races", "results");
 
   return (
     <>

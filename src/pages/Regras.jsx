@@ -2,7 +2,7 @@ import useApi from "../hooks/useApi";
 import Card from "../components/Card";
 
 function Regras() {
-  const { getdata } = useApi("rules", "results");
+  const { getdata } = useApi("/api/rules", "results");
 
   return (
     <>

@@ -2,7 +2,7 @@ import useApi from "../hooks/useApi";
 import Card from "../components/Card";
 
 function Equipamentos() {
-  const { getdata } = useApi("equipment", "results");
+  const { getdata } = useApi("/api/equipment", "results");
   return (
     <>
       {getdata.map((results) => (
