@@ -13,7 +13,6 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    // Adicione sua lógica de autenticação aqui
     console.log(`Username: ${username}, Password: ${password}`);
   };
 
