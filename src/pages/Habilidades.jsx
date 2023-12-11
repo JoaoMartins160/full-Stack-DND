@@ -1,4 +1,4 @@
-import useApi from "../hooks/useApi";
+import { useApi } from "../hooks/useApi";
 import Card from "../components/Card";
 
 function Habilidades() {

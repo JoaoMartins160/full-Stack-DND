@@ -1,7 +1,6 @@
-import { BASE_URL, dndapi } from "../hooks/useApi";
+import { useApi } from "../hooks/useApi";
 import { useState } from "react";
 import CardMonster from "../components/CardMonster";
-import axios from "axios";
 
 function Monstros() {
   const [monsterList, setMonsterList] = useState([]);
@@ -12,28 +11,12 @@ function Monstros() {
     e.preventDefault();
     handleReset();
     try {
-      const response = await dndapi.get(`/api/monsters`);
-      const monsterPromises = response.data.map((index) => axios.get(BASE_URL));
-      const allMonsterResponses = await Promise.all(monsterPromises);
-      setMonsterList(allMonsterResponses.map((response) => response.data));
+      const response = await useApi.get("/api/monsters");
+      setMonsterList(response.data);
     } catch (e) {
       console.error(e);
     }
   };
-
-  /*   const handleAllSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await dndapi.get(`/api/monsters`);
-      const monsterPromises = response.data.results.map((index) =>
-        axios.get(BASE_URL + index.url)
-      );
-      const allMonsterResponses = await Promise.all(monsterPromises);
-      setMonsterList(allMonsterResponses.map((response) => response.data));
-    } catch (e) {
-      console.error(e);
-    }
-  }; */
 
   const handleButtonClick = () => {
     const input = document.getElementById("monster-input").value.toLowerCase();
@@ -50,7 +33,7 @@ function Monstros() {
     e.preventDefault();
     handleReset();
     try {
-      const response = await dndapi.get(`/api/monsters/${search}`);
+      const response = await useApi.get(`/api/monsters/${search}`);
       setMonsterList([response.data]);
     } catch (e) {
       setFind(false);

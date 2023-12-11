@@ -1,27 +1,24 @@
+import { useState } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 
-export const BASE_URL = "localhost:8080";
+const BASE_URL = "https://localhost:8080/";
 
-export const dndapi = axios.create({
-  baseURL: BASE_URL,
-});
+export const useApi = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-function useApi(url, pass) {
-  const [getdata, setData] = useState([]);
-  useEffect(() => {
-    async function getapi() {
-      try {
-        const res = await dndapi.get(url);
-        setData(res.data[pass]);
-      } catch (error) {
-        console.log(error);
-      }
+  const request = async (url, options) => {
+    setIsLoading(true);
+    try {
+      const response = await axios({ url: BASE_URL + url, ...options });
+      setData(response.data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
     }
-    getapi();
-  }, [url, pass]);
+  };
 
-  return { getdata };
-}
-
-export default useApi;
+  return { data, isLoading, error, request };
+};

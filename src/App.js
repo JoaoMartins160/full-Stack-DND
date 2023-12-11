@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Classes from "./pages/Classes";
 import Equipamentos from "./pages/Equipamentos";
@@ -9,10 +9,10 @@ import Regras from "./pages/Regras";
 import Home from "./pages/Home";
 import useWebSocket from "./websocket";
 import { useEffect, useState } from "react";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 
 function App() {
-  const socket = useWebSocket("ws://localhost:8080");
+  const socket = useWebSocket("wss://localhost:8080");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -24,30 +24,89 @@ function App() {
     }
   }, [socket]);
 
-  const handleLogin = (username, password) => {
-    const mockUser = "Joao";
-    const mockPassword = "senha123";
-
-    if (username === mockUser && password === mockPassword) {
-      setIsLoggedIn(true);
-      navigate('/');
-    } else {
-      alert("Usuário ou senha incorretos");
-    }
+  const handleSuccessfullLogin = () => {
+    setIsLoggedIn(true);
+    navigate("/");
   };
 
   return (
     <>
       {isLoggedIn && <Sidebar />}
       <Routes>
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Classes" element={isLoggedIn ? <Classes /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Equipamentos" element={isLoggedIn ? <Equipamentos /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Habilidades" element={isLoggedIn ? <Habilidades /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Monstros" element={isLoggedIn ? <Monstros /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Raças" element={isLoggedIn ? <Racas /> : <Login onLogin={handleLogin} />} />
-        <Route path="/Regras" element={isLoggedIn ? <Regras /> : <Login onLogin={handleLogin} />} />
+        <Route
+          path="/login"
+          element={<Login onSuccessfullLogin={handleSuccessfullLogin} />}
+        />
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Home />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Classes"
+          element={
+            isLoggedIn ? (
+              <Classes />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Equipamentos"
+          element={
+            isLoggedIn ? (
+              <Equipamentos />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Habilidades"
+          element={
+            isLoggedIn ? (
+              <Habilidades />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Monstros"
+          element={
+            isLoggedIn ? (
+              <Monstros />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Raças"
+          element={
+            isLoggedIn ? (
+              <Racas />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
+        <Route
+          path="/Regras"
+          element={
+            isLoggedIn ? (
+              <Regras />
+            ) : (
+              <Login onSuccessfullLogin={handleSuccessfullLogin} />
+            )
+          }
+        />
       </Routes>
     </>
   );

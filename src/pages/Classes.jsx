@@ -1,8 +1,8 @@
-import useApi from "../hooks/useApi";
+import { useApi } from "../hooks/useApi";
 import Card from "../components/Card";
 
 function Classes() {
-  const { getdata } = useApi("/api/classes", "results");
+  const [getdata] = useApi.get("/api/classes");
 
   return (
     <>

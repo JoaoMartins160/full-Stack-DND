@@ -1,26 +1,32 @@
 import React, { useState } from "react";
+import { useApi } from "../hooks/useApi";
 
-const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
+const Login = ({ onSuccessfullLogin }) => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { data, error, request } = useApi();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const mockUser = "Joao";
-    const mockPassword = "senha123";
-
-    if (username === mockUser && password === mockPassword) {
-      onLogin(username, password);
-    } else {
-      alert("Usuário ou senha incorretos");
+    await request("login", {
+      method: "POST",
+      data: {
+        email,
+        password,
+      },
+    });
+    if (data) {
+      onSuccessfullLogin();
+    } else if (error) {
+      console.error(error);
     }
   };
 
@@ -29,8 +35,8 @@ const Login = ({ onLogin }) => {
       <h1>Login</h1>
       <form>
         <label>
-          Username:
-          <input type="text" value={username} onChange={handleUsernameChange} />
+          email:
+          <input type="text" value={email} onChange={handleEmailChange} />
         </label>
         <br />
         <label>
