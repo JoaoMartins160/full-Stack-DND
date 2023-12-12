@@ -97,16 +97,6 @@ function App() {
             )
           }
         />
-        <Route
-          path="/Regras"
-          element={
-            isLoggedIn ? (
-              <Regras />
-            ) : (
-              <Login onSuccessfullLogin={handleSuccessfullLogin} />
-            )
-          }
-        />
       </Routes>
     </>
   );
