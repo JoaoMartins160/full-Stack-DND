@@ -2,10 +2,9 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Classes from "./pages/Classes";
 import Equipamentos from "./pages/Equipamentos";
-import Habilidades from "./pages/Habilidades";
+import Magias from "./pages/Magias";
 import Monstros from "./pages/Monstros";
 import Racas from "./pages/Racas";
-import Regras from "./pages/Regras";
 import Home from "./pages/Home";
 import useWebSocket from "./websocket";
 import { useEffect, useState } from "react";
@@ -68,10 +67,10 @@ function App() {
           }
         />
         <Route
-          path="/Habilidades"
+          path="/Magias"
           element={
             isLoggedIn ? (
-              <Habilidades />
+              <Magias />
             ) : (
               <Login onSuccessfullLogin={handleSuccessfullLogin} />
             )

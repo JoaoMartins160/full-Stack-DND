@@ -5,12 +5,6 @@ const TextIn = styled.span`
   font-size: 14px;
 `;
 
-const TextCol = styled(TextIn)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const MainCard = styled.div`
   display: flex;
   margin-left: 30%;

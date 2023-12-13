@@ -92,9 +92,7 @@ function CardMonster(props) {
         </CollumnMonster>
       </SpaceMonster>
       <LineMonster>
-        <TextIn>
-          Desafio: {props.Challenge} ({props.XP} XP)
-        </TextIn>
+        <TextIn>Desafio: {props.Challenge}</TextIn>
       </LineMonster>
     </MainCard>
   );

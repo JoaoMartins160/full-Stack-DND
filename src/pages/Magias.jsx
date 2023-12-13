@@ -1,10 +1,10 @@
 import { useApi } from "../hooks/useApi";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
-import CardMonster from "../components/CardMonster";
+import CardSpells from "../components/CardSpells";
 
-function Monstros() {
-  const [monsterList, setMonsterList] = useState([]);
+function Magias() {
+  const [spellsList, setSpellsList] = useState([]);
   const [search, setSearch] = useState("");
   const [find, setFind] = useState(true);
   const [cookies] = useCookies(["userToken"]);
@@ -20,9 +20,9 @@ function Monstros() {
           Authorization: `Bearer ${cookies.accessToken}`,
         },
       };
-      await request("api/monsters", options);
+      await request("api/spells", options);
       if (data) {
-        setMonsterList(data);
+        setSpellsList(data);
       }
     } catch (e) {
       console.error(e);
@@ -50,9 +50,9 @@ function Monstros() {
           Authorization: `Bearer ${cookies.accessToken}`,
         },
       };
-      await request(`api/monsters/${search}`, options);
+      await request(`api/spells/${search}`, options);
       if (data) {
-        setMonsterList([data]);
+        setSpellsList([data]);
       }
     } catch (e) {
       setFind(false);
@@ -60,43 +60,38 @@ function Monstros() {
     }
   };
 
-  function handleReset() {
-    setSearch("");
-    setFind(true);
-    setMonsterList(0);
-  }
+  const cardList = () => {
+    if (spellsList.length === 0) {
+      return;
+    }
+    return spellsList.map(handleCards);
+  };
 
-  const handleCards = (monster) => {
+  const handleCards = (spells) => {
     return (
       <>
-        <CardMonster
-          key={monster.id}
-          title={monster.name}
-          type={monster.type}
-          size={monster.size}
-          alignment={monster.alignment}
-          CA={monster.armor_class}
-          HP={monster.hit_points}
-          SpeedWalk={monster.speed.walk}
-          SpeedSwin={monster.speed.swim}
-          STR={monster.strength}
-          DEX={monster.dexterity}
-          CONS={monster.constitution}
-          INT={monster.intelligence}
-          WIS={monster.wisdom}
-          CHA={monster.charisma}
-          Challenge={monster.challenge_rating}
-        ></CardMonster>
+        <CardSpells
+          key={spells.index}
+          title={spells.name}
+          level={spells.level}
+          school={spells.school}
+          casting_time={spells.casting_time}
+          range={spells.range}
+          components={spells.components}
+          duration={spells.duration}
+          desc={spells.desc}
+          higher_level={spells.higher_level}
+          classes={spells.classes}
+        ></CardSpells>
       </>
     );
   };
 
-  const cardList = () => {
-    if (monsterList.length === 0) {
-      return;
-    }
-    return monsterList.map(handleCards);
-  };
+  function handleReset() {
+    setSearch("");
+    setFind(true);
+    setSpellsList(0);
+  }
 
   return (
     <div className="api-block">
@@ -105,7 +100,7 @@ function Monstros() {
           <input
             id="monster-input"
             type="text"
-            placeholder="Digite o nome do monstro"
+            placeholder="Digite o nome da raça"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
@@ -119,13 +114,13 @@ function Monstros() {
             All Elements
           </button>
         </form>
-        {find ? <></> : <p>Nenhum monstro encontrado com esse nome.</p>}
+        {find ? <></> : <p>Nenhuma raça encontrada com esse nome.</p>}
       </header>
-      {monsterList.length > 0 && (
+      {spellsList.length > 0 && (
         <div className="cardContainer">{cardList()}</div>
       )}
     </div>
   );
 }
 
-export default Monstros;
+export default Magias;
